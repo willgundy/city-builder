@@ -19,48 +19,40 @@
         </div>
     </header>
     <main>
-        <section class="main-section">
-            <img class="main-logo" src="./assets/alchemy-logo.png" />
-            <h2>
-                Welcome to Alchemy Bootstrap!
-            </h2>
-
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam repellendus similique consectetur
-                voluptas facilis molestiae voluptates nobis error sapiente, ad, ipsa vero non, sint eligendi? Eos
-                praesentium iusto magnam exercitationem.
-                Earum sunt voluptatibus molestias, sint voluptatum quos reiciendis. Id asperiores deleniti dolores
-                provident, eius, nostrum aperiam vel, optio qui illo corrupti in. Eum quam, est nemo porro sapiente
-                excepturi assumenda.
-                Rerum unde quidem maxime. Ullam, dolores labore molestias voluptatibus adipisci quod? Quaerat nihil
-                inventore molestiae assumenda, voluptates vel necessitatibus eligendi? Accusamus ratione eligendi
-                reprehenderit? Beatae incidunt molestias ea soluta nulla.
-                Fugiat quae soluta voluptate mollitia praesentium modi ex illo, autem assumenda, vel aliquam fugit
-                possimus dolorem esse corporis ipsa! Voluptatem sapiente error non, ea optio suscipit quasi maxime nobis
-                ex?
-                Et ipsa tenetur ullam ab nesciunt quas fugit velit impedit illum esse eligendi corporis culpa
-                praesentium aspernatur ex sint veniam quidem, doloribus corrupti hic vitae. Eum neque ducimus omnis
-                exercitationem?
-            </p>
-            <hr />
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam repellendus similique consectetur
-                voluptas facilis molestiae voluptates nobis error sapiente, ad, ipsa vero non, sint eligendi? Eos
-                praesentium iusto magnam exercitationem.
-                Earum sunt voluptatibus molestias, sint voluptatum quos reiciendis. Id asperiores deleniti dolores
-                provident, eius, nostrum aperiam vel, optio qui illo corrupti in. Eum quam, est nemo porro sapiente
-                excepturi assumenda.
-                Rerum unde quidem maxime. Ullam, dolores labore molestias voluptatibus adipisci quod? Quaerat nihil
-                inventore molestiae assumenda, voluptates vel necessitatibus eligendi? Accusamus ratione eligendi
-                reprehenderit? Beatae incidunt molestias ea soluta nulla.
-                Fugiat quae soluta voluptate mollitia praesentium modi ex illo, autem assumenda, vel aliquam fugit
-                possimus dolorem esse corporis ipsa! Voluptatem sapiente error non, ea optio suscipit quasi maxime nobis
-                ex?
-                Et ipsa tenetur ullam ab nesciunt quas fugit velit impedit illum esse eligendi corporis culpa
-                praesentium aspernatur ex sint veniam quidem, doloribus corrupti hic vitae. Eum neque ducimus omnis
-                exercitationem?
-            </p>
-
+        <section>
+            <h1>Make a City!</h1>
+        </section>
+        <section class="column-content">
+            <section id="imageContainer">
+                <img src="assets/alchemy-logo.png" alt="test" id="region-image">
+                <img src="assets/alchemy-logo.png" alt="test" id="type-image">
+                <img src="assets/alchemy-logo.png" alt="test" id="size-image">
+            </section>
+            <section id="selectorContainer">
+                <select name="region" id="region">
+                    <option value="east-coast">East Coast</option>
+                    <option value="south">South</option>
+                    <option value="mid-west">Mid West</option>
+                    <option value="west-coast">West Coast</option>
+                </select>
+                <select name="type" id="type">
+                    <option value="tropical">Tropical</option>
+                    <option value="desert">Desert</option>
+                    <option value="forest">Forest</option>
+                    <option value="mountain">Mountain</option>
+                </select>
+                <select name="size" id="size">
+                    <option value="big-city">Big City</option>
+                    <option value="small-city">Small City</option>
+                    <option value="town">Town</option>
+                </select>
+            </section>
+            <section id="textContainer">
+                <label for="text">City Slogan</label>
+                <input type="text">
+                <div id="sloganText"> slogans</div>
+                <div id="changeCounter"> test</div>
+            </section>
         </section>
     </main>
     <footer>
