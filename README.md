@@ -48,10 +48,11 @@ html outline:
 
 
 Outline of Work:
-1. Create HTML elements
-2. Input photos in assets folder
-3. Add event listeners to dropdowns
+1. Create HTML elements - done
+2. Input photos in assets folder - done
+3. Add event listeners to dropdowns - done
 4. Update DOM of images
 5. Update edit text and edit counts
 7. Slogan updates
-8. city name input
+8. CSS Updates
+9. city name input

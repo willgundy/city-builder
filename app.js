@@ -25,6 +25,18 @@ let typeChangeCount = 0;
 let sizeChangeCount = 0;
 
 // set event listeners 
+
+regionSelectorEl.addEventListener('change', () => {
+    regionImageEl.src = 'assets/' + regionSelectorEl.value + '.png';
+});
+
+typeSelectorEl.addEventListener('change', () => {
+    typeImageEl.src = 'assets/' + typeSelectorEl.value + '.png';
+});
+
+sizeSelectorEl.addEventListener('change', () => {
+    sizeImageEl.src = 'assets/' + sizeSelectorEl.value + '.png';
+});
   // get user input
   // use user input to update state 
   // update DOM to reflect the new state

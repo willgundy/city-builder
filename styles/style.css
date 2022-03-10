@@ -94,3 +94,7 @@ footer {
     display: grid;
     grid-template-columns: 33% 1fr 2fr;
 }
+
+img {
+    width: 300px;
+}
