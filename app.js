@@ -18,25 +18,45 @@ const sizeSelectorEl = document.getElementById('size');
 const sloganInputEl = document.getElementById('slogan-input');
 const sloganTextEl = document.getElementById('sloganText');
 const changeCounterTextEl = document.getElementById('changeCounter');
+const sloganButtonEl = document.getElementById('slogan-button');
 
 // let state
 let regionChangeCount = 0;
 let typeChangeCount = 0;
 let sizeChangeCount = 0;
 
+const slogans = [];
+
 // set event listeners 
 
 regionSelectorEl.addEventListener('change', () => {
     regionImageEl.src = 'assets/' + regionSelectorEl.value + '.png';
+
+    regionChangeCount++;
+    updateChangeText();
 });
 
 typeSelectorEl.addEventListener('change', () => {
     typeImageEl.src = 'assets/' + typeSelectorEl.value + '.png';
+
+    typeChangeCount++;
+    updateChangeText();
 });
 
 sizeSelectorEl.addEventListener('change', () => {
     sizeImageEl.src = 'assets/' + sizeSelectorEl.value + '.png';
+
+    sizeChangeCount++;
+    updateChangeText();
 });
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+
+sloganButtonEl.addEventListener('click', () => {
+    slogans.push(sloganInputEl.value);
+    console.log(slogans);
+});
+
+
+function updateChangeText() {
+    changeCounterTextEl.textContent = 'You have changed your mind on region ' + regionChangeCount + ' times, terrain type '
+        + typeChangeCount + ' times, and city size ' + sizeChangeCount + ' times.';
+}
