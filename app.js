@@ -16,9 +16,11 @@ const nameInputEl = document.getElementById('name-input');
 const sloganTextEl = document.getElementById('sloganText');
 const changeCounterTextEl = document.getElementById('changeCounter');
 const sloganButtonEl = document.getElementById('slogan-button');
+const sloganResetButtonEl = document.getElementById('slogan-reset-button');
 const cityNameHeaderEl = document.getElementById('cityNameHeader');
 const cityNameButtonEl = document.getElementById('name-button');
 const cityNamePEl = document.getElementById('cityNameP');
+const cityDescriptionEl = document.getElementById('cityDescription');
 
 //hidden sections on load
 const textContainer = document.getElementById('text-container');
@@ -74,6 +76,10 @@ sloganButtonEl.addEventListener('click', () => {
     displaySlogans();
 });
 
+sloganResetButtonEl.addEventListener('click', () => {
+    resetSlogans();
+});
+
 cityNameButtonEl.addEventListener('click', () => {
     cityNameHeaderEl.textContent = nameInputEl.value;
     cityNamePEl.classList.remove('hidden');
@@ -103,6 +109,11 @@ function findExampleCity() {
         slogans.push(slogan);
     }
     displaySlogans();
+    restCityName();
+    cityNameHeaderEl.innerHTML = exampleCity.name;
+    nameInputEl.value = exampleCity.name;
+    cityDescriptionEl.innerHTML = 'We think you would like ' + exampleCity.name + '. It is a ' + exampleCity.size + ' in the ' +
+    exampleCity.regions + ' of the USA surrounded by ' + exampleCity.type + '.';
 }
 
 function resetSlogans() {
@@ -112,7 +123,8 @@ function resetSlogans() {
 }
 
 function restCityName() {
-
+    cityNameHeaderEl.innerHTML = '';
+    nameInputEl.value = '';
 }
 
 function revealAllDOMElements() {

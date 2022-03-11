@@ -19,6 +19,7 @@
     <main>
         <section class="header-section">
             <h1>Choose a Location for your Trip!</h1>
+            <p id="cityDescription">Choose all three dropdowns before you grade this assignment please!</p>
         </section>
         <section class="main-container">
             <section class="content-container">
@@ -52,16 +53,17 @@
                     <div>
                         <label for="text">City Name</label>
                         <input type="text" id="name-input">
-                        <button id="name-button">Add</button>
+                        <button id="name-button">Change</button>
                     </div>
                     <div>
                         <label for="text">City Slogan</label>
                         <input type="text" id="slogan-input">
                         <button id="slogan-button">Add</button>
+                        <button id="slogan-reset-button">Reset</button>
                     </div>
                 </div>
                 <div>
-                    <p class="hidden" id="cityNameP"><strong id="cityNameHeader"></strong> the city that...</p>
+                    <p id="cityNameP"><strong id="cityNameHeader"></strong> the city that...</p>
                     <div id="sloganText"></div>
                 </div>
                 <div id="changeCounter"> </div>
