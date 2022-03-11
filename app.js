@@ -52,11 +52,24 @@ sizeSelectorEl.addEventListener('change', () => {
 
 sloganButtonEl.addEventListener('click', () => {
     slogans.push(sloganInputEl.value);
-    console.log(slogans);
+    
+    sloganInputEl.value = '';
+
+    displaySlogans();
 });
 
 
 function updateChangeText() {
     changeCounterTextEl.textContent = 'You have changed your mind on region ' + regionChangeCount + ' times, terrain type '
         + typeChangeCount + ' times, and city size ' + sizeChangeCount + ' times.';
+}
+
+function displaySlogans() {
+    sloganTextEl.innerHTML = '';
+
+    for (let slogan of slogans) {
+        const sloganEl = document.createElement('div');
+        sloganEl.textContent = slogan;
+        sloganTextEl.append(sloganEl);
+    }
 }
