@@ -89,10 +89,8 @@ function displaySlogans() {
 }
 
 function findExampleCity() {
-    console.log(cities.city[Number(regionSelectorEl.value) + Number(typeSelectorEl.value) + Number(sizeSelectorEl.value)]);
-    console.log(regionSelectorEl.value);
-    console.log(typeSelectorEl.value);
-    console.log(sizeSelectorEl.value);
+    const exampleCity = cities.city[Number(regionSelectorEl.value) + Number(typeSelectorEl.value) + Number(sizeSelectorEl.value)]);
+    
 }
 
 //couldn't figure out how to import an object, functions worked fine. Had to put directly in app.js file

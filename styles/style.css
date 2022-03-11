@@ -25,6 +25,7 @@ body {
     --header-height: 40px;
     --shadow: 0px 10px 20px -12px rgba(0,0,0,0.45);
     --gutter: 30px;
+    --footer-height: 25px;
     
     font-family: 'Titillium Web', sans-serif;
     background-color: var(--color2);
@@ -55,6 +56,9 @@ header {
 
 .header-section {
     margin-top: 30px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -116,4 +120,23 @@ img {
 strong {
     font-size: xx-large;
     font-weight: bold;
+}
+
+#addtripbtn {
+    border: .4rem solid white;
+    border-radius: .25rem;
+    margin: 1rem;
+    padding: 1rem;
+    width: 75%;
+    height: 100%;
+    text-align: center;
+    line-height: 3vh;
+    color: white;
+    background: black;
+}
+
+.button-hover {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
 }
