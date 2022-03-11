@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/home.css">
-    <title>Document</title>
+    <title>Trip Planner</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     </header>
     <main>
         <section class="header-section">
-            <h1>Make a City!</h1>
+            <h1>Choose a City for your Trip!</h1>
         </section>
         <section class="main-container">
             <section class="content-container">
@@ -29,39 +29,46 @@
             <section class="content-container">
                 <select name="region" id="region">
                     <option value="default" >---Choose a region---</option>
-                    <option value="northeast" >Northeast</option>
-                    <option value="south">South</option>
-                    <option value="midwest">Mid West</option>
-                    <option value="west">West</option>
+                    <option value="0">Northeast</option>
+                    <option value="9">South</option>
+                    <option value="18">Mid West</option>
+                    <option value="27">West</option>
                 </select>
                 <select name="type" id="type">
                     <option value="default" >---Choose a city type---</option>
-                    <option value="desert">Desert</option>
-                    <option value="forest">Forest</option>
-                    <option value="mountain">Mountain</option>
+                    <option value="0">Desert</option>
+                    <option value="3">Forest</option>
+                    <option value="6">Mountain</option>
                 </select>
                 <select name="size" id="size">
                     <option value="default" >---Choose a city size---</option>
-                    <option value="big-city">Big City</option>
-                    <option value="small-city">Small City</option>
-                    <option value="town">Town</option>
+                    <option value="0">Big City</option>
+                    <option value="1">Small City</option>
+                    <option value="2">Town</option>
                 </select>
             </section>
-            <section class="content-container">
-                <div id="slogan-container">
-                    <label for="text">City Slogan</label>
-                    <input type="text" id="slogan-input">
-                    <button id="slogan-button">Add</button>
+            <section class="text-container">
+                <div id="input-container">
+                    <div>
+                        <label for="text">City Name</label>
+                        <input type="text" id="name-input">
+                        <button id="name-button">Add</button>
+                    </div>
+                    <div>
+                        <label for="text">City Slogan</label>
+                        <input type="text" id="slogan-input">
+                        <button id="slogan-button">Add</button>
+                    </div>
                 </div>
+                <p class="hidden" id="cityNameP"><strong id="cityNameHeader"></strong> the city that...</p>
                 <div id="sloganText"></div>
                 <div id="changeCounter"> </div>
             </section>
         </section>
+        <section class="header-section">
+            <button>Add City to Trip!</button>
+        </section>
     </main>
-    <footer>
-        <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
-    </footer>
-
     <script type="module" src="./app.js"></script>
 </body>
 
