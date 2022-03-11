@@ -20,12 +20,16 @@ const cityNameHeaderEl = document.getElementById('cityNameHeader');
 const cityNameButtonEl = document.getElementById('name-button');
 const cityNamePEl = document.getElementById('cityNameP');
 
+//hidden sections on load
+const textContainer = document.getElementById('text-container');
+const buttonContainer = document.getElementById('button-container');
+
 // let state
 let regionChangeCount = 0;
 let typeChangeCount = 0;
 let sizeChangeCount = 0;
 
-const slogans = [];
+let slogans = [];
 
 // set event listeners 
 
@@ -36,6 +40,7 @@ regionSelectorEl.addEventListener('change', () => {
     updateChangeText();
     if (typeSelectorEl.value !== 'default' && regionSelectorEl.value !== 'default' && sizeSelectorEl.value !== 'default') {
         findExampleCity();
+        revealAllDOMElements();
     }
 });
 
@@ -46,6 +51,7 @@ typeSelectorEl.addEventListener('change', () => {
     updateChangeText();
     if (typeSelectorEl.value !== 'default' && regionSelectorEl.value !== 'default' && sizeSelectorEl.value !== 'default') {
         findExampleCity();
+        revealAllDOMElements();
     }
 });
 
@@ -56,6 +62,7 @@ sizeSelectorEl.addEventListener('change', () => {
     updateChangeText();
     if (typeSelectorEl.value !== 'default' && regionSelectorEl.value !== 'default' && sizeSelectorEl.value !== 'default') {
         findExampleCity();
+        revealAllDOMElements();
     }
 });
 
@@ -89,8 +96,28 @@ function displaySlogans() {
 }
 
 function findExampleCity() {
-    const exampleCity = cities.city[Number(regionSelectorEl.value) + Number(typeSelectorEl.value) + Number(sizeSelectorEl.value)]);
-    
+    const exampleCity = cities.city[Number(regionSelectorEl.value) + Number(typeSelectorEl.value) + Number(sizeSelectorEl.value)];
+    const exampleCitySlogans = exampleCity.slogans;
+    resetSlogans();
+    for (let slogan of exampleCitySlogans) {
+        slogans.push(slogan);
+    }
+    displaySlogans();
+}
+
+function resetSlogans() {
+    slogans = [];
+    sloganInputEl.value = '';
+    sloganTextEl.innerHTML = '';
+}
+
+function restCityName() {
+
+}
+
+function revealAllDOMElements() {
+    buttonContainer.classList.remove('hidden');
+    textContainer.classList.remove('hidden');
 }
 
 //couldn't figure out how to import an object, functions worked fine. Had to put directly in app.js file

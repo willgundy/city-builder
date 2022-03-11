@@ -55,7 +55,7 @@ header {
 }
 
 .header-section {
-    margin-top: 30px;
+    margin-top: 20px;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -105,7 +105,7 @@ img {
     height: 20px;
 }
 
-.text-container {
+#text-container {
     width: 350px;
     height: 450px;
     align-content: center;
@@ -123,19 +123,21 @@ strong {
 }
 
 #addtripbtn {
-    border: .4rem solid white;
-    border-radius: .25rem;
+    border: 3px solid black;
+    border-radius: 20px;
     margin: 1rem;
     padding: 1rem;
     width: 75%;
     height: 100%;
     text-align: center;
     line-height: 3vh;
-    color: white;
-    background: black;
+    color: black;
+    background: white;
+    font-size: x-large;
+    font-weight: 300;
 }
 
-.button-hover {
+.addtripbtn-hover {
     transform: scale(1.1);
     border-color: #ffc600;
     box-shadow: 0 0 1rem #ffc600;

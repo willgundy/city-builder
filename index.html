@@ -18,7 +18,7 @@
     </header>
     <main>
         <section class="header-section">
-            <h1>Choose a City for your Trip!</h1>
+            <h1>Choose a Location for your Trip!</h1>
         </section>
         <section class="main-container">
             <section class="content-container">
@@ -35,7 +35,7 @@
                     <option value="27">West</option>
                 </select>
                 <select name="type" id="type">
-                    <option value="default" >---Choose a city type---</option>
+                    <option value="default" >---Choose a terrain type---</option>
                     <option value="0">Desert</option>
                     <option value="3">Forest</option>
                     <option value="6">Mountain</option>
@@ -47,7 +47,7 @@
                     <option value="2">Town</option>
                 </select>
             </section>
-            <section class="text-container">
+            <section id="text-container" class="hidden">
                 <div id="input-container">
                     <div>
                         <label for="text">City Name</label>
@@ -60,12 +60,14 @@
                         <button id="slogan-button">Add</button>
                     </div>
                 </div>
-                <p class="hidden" id="cityNameP"><strong id="cityNameHeader"></strong> the city that...</p>
-                <div id="sloganText"></div>
+                <div>
+                    <p class="hidden" id="cityNameP"><strong id="cityNameHeader"></strong> the city that...</p>
+                    <div id="sloganText"></div>
+                </div>
                 <div id="changeCounter"> </div>
             </section>
         </section>
-        <section class="header-section">
+        <section id = "button-container" class="header-section hidden">
             <button id="addtripbtn">Add City to Trip!</button>
         </section>
     </main>
