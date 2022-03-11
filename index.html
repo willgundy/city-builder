@@ -14,43 +14,46 @@
 
 <body>
     <header>
-        <div class="gutter-right logo">
-            <img src="./assets/big-logo.png" />
-        </div>
+
     </header>
     <main>
         <section class="header-section">
             <h1>Make a City!</h1>
         </section>
-        <section class="column-content">
-            <section id="imageContainer" class="content-container">
+        <section class="main-container">
+            <section class="content-container">
                 <img src="" alt="" id="region-image">
                 <img src="" alt="" id="type-image">
                 <img src="" alt="" id="size-image">
             </section>
-            <section id="selectorContainer" class="content-container">
+            <section class="content-container">
                 <select name="region" id="region">
+                    <option value="default" >---Choose a region---</option>
                     <option value="northeast" >Northeast</option>
                     <option value="south">South</option>
                     <option value="midwest">Mid West</option>
-                    <option value="west">West Coast</option>
+                    <option value="west">West</option>
                 </select>
                 <select name="type" id="type">
+                    <option value="default" >---Choose a city type---</option>
                     <option value="desert">Desert</option>
                     <option value="forest">Forest</option>
                     <option value="mountain">Mountain</option>
                 </select>
                 <select name="size" id="size">
+                    <option value="default" >---Choose a city size---</option>
                     <option value="big-city">Big City</option>
                     <option value="small-city">Small City</option>
                     <option value="town">Town</option>
                 </select>
             </section>
-            <section id="textContainer" class="content-container">
-                <label for="text">City Slogan</label>
-                <input type="text" id="slogan-input">
-                <button id="slogan-button">Add</button>
-                <div id="sloganText"> slogans</div>
+            <section class="content-container">
+                <div id="slogan-container">
+                    <label for="text">City Slogan</label>
+                    <input type="text" id="slogan-input">
+                    <button id="slogan-button">Add</button>
+                </div>
+                <div id="sloganText"></div>
                 <div id="changeCounter"> </div>
             </section>
         </section>

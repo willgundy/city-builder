@@ -1,8 +1,4 @@
 // import functions and grab DOM elements
-//get containers
-const imageContainerEl = document.getElementById('imageContainer');
-const selectorContainerEl = document.getElementById('selectorContainer');
-const textContainerEl = document.getElementById('textContainer');
 
 //get images
 const regionImageEl = document.getElementById('region-image');
@@ -68,7 +64,7 @@ function displaySlogans() {
     sloganTextEl.innerHTML = '';
 
     for (let slogan of slogans) {
-        const sloganEl = document.createElement('div');
+        const sloganEl = document.createElement('p');
         sloganEl.textContent = slogan;
         sloganTextEl.append(sloganEl);
     }
