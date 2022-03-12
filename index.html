@@ -9,64 +9,78 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/home.css">
-    <title>Document</title>
+    <title>Trip Planner</title>
 </head>
 
 <body>
-    <header>
-        <div class="gutter-right logo">
-            <img src="./assets/big-logo.png" />
-        </div>
-    </header>
     <main>
-        <section class="main-section">
-            <img class="main-logo" src="./assets/alchemy-logo.png" />
-            <h2>
-                Welcome to Alchemy Bootstrap!
-            </h2>
-
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam repellendus similique consectetur
-                voluptas facilis molestiae voluptates nobis error sapiente, ad, ipsa vero non, sint eligendi? Eos
-                praesentium iusto magnam exercitationem.
-                Earum sunt voluptatibus molestias, sint voluptatum quos reiciendis. Id asperiores deleniti dolores
-                provident, eius, nostrum aperiam vel, optio qui illo corrupti in. Eum quam, est nemo porro sapiente
-                excepturi assumenda.
-                Rerum unde quidem maxime. Ullam, dolores labore molestias voluptatibus adipisci quod? Quaerat nihil
-                inventore molestiae assumenda, voluptates vel necessitatibus eligendi? Accusamus ratione eligendi
-                reprehenderit? Beatae incidunt molestias ea soluta nulla.
-                Fugiat quae soluta voluptate mollitia praesentium modi ex illo, autem assumenda, vel aliquam fugit
-                possimus dolorem esse corporis ipsa! Voluptatem sapiente error non, ea optio suscipit quasi maxime nobis
-                ex?
-                Et ipsa tenetur ullam ab nesciunt quas fugit velit impedit illum esse eligendi corporis culpa
-                praesentium aspernatur ex sint veniam quidem, doloribus corrupti hic vitae. Eum neque ducimus omnis
-                exercitationem?
-            </p>
-            <hr />
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam repellendus similique consectetur
-                voluptas facilis molestiae voluptates nobis error sapiente, ad, ipsa vero non, sint eligendi? Eos
-                praesentium iusto magnam exercitationem.
-                Earum sunt voluptatibus molestias, sint voluptatum quos reiciendis. Id asperiores deleniti dolores
-                provident, eius, nostrum aperiam vel, optio qui illo corrupti in. Eum quam, est nemo porro sapiente
-                excepturi assumenda.
-                Rerum unde quidem maxime. Ullam, dolores labore molestias voluptatibus adipisci quod? Quaerat nihil
-                inventore molestiae assumenda, voluptates vel necessitatibus eligendi? Accusamus ratione eligendi
-                reprehenderit? Beatae incidunt molestias ea soluta nulla.
-                Fugiat quae soluta voluptate mollitia praesentium modi ex illo, autem assumenda, vel aliquam fugit
-                possimus dolorem esse corporis ipsa! Voluptatem sapiente error non, ea optio suscipit quasi maxime nobis
-                ex?
-                Et ipsa tenetur ullam ab nesciunt quas fugit velit impedit illum esse eligendi corporis culpa
-                praesentium aspernatur ex sint veniam quidem, doloribus corrupti hic vitae. Eum neque ducimus omnis
-                exercitationem?
-            </p>
-
+        <section class="header-section">
+            <h1 id="mainHeader">Choose a Location for your Trip!</h1>
+            <p id="cityDescription">Choose all three dropdowns before you grade this assignment please!</p>
+        </section>
+        <section class="main-container">
+            <section class="content-container">
+                <img src="assets/Solid_white.png" alt="default image" id="region-image">
+                <img src="assets/Solid_white.png" alt="default image" id="type-image">
+                <img src="assets/Solid_white.png" alt="default images" id="size-image">
+            </section>
+            <section class="content-container">
+                <select name="region" id="region">
+                    <option value="default" >---Choose a region---</option>
+                    <option value="0">Northeast</option>
+                    <option value="9">South</option>
+                    <option value="18">Mid West</option>
+                    <option value="27">West (I only got to slogans for these)</option>
+                </select>
+                <select name="type" id="type">
+                    <option value="default" >---Choose a terrain type---</option>
+                    <option value="0">Desert</option>
+                    <option value="3">Forest</option>
+                    <option value="6">Mountain</option>
+                </select>
+                <select name="size" id="size">
+                    <option value="default" >---Choose a city size---</option>
+                    <option value="0">Big City</option>
+                    <option value="1">Small City</option>
+                    <option value="2">Town</option>
+                </select>
+            </section>
+            <section id="text-container" class="hidden">
+                <div id="input-container">
+                    <div>
+                        <label for="text">City Name</label>
+                        <input type="text" id="name-input">
+                        <button id="name-button">Change</button>
+                    </div>
+                    <div>
+                        <label for="text">City Slogan</label>
+                        <input type="text" id="slogan-input">
+                        <button id="slogan-button">Add</button>
+                        <button id="slogan-reset-button">Reset</button>
+                    </div>
+                </div>
+                <div>
+                    <p id="cityNameP"><strong id="cityNameHeader"></strong> the...</p>
+                    <div id="sloganText"></div>
+                </div>
+                <div id="changeCounter"> </div>
+            </section>
+        </section>
+        <section id = "button-container" class="header-section hidden">
+            <button id="addtripbtn">Add this City to my Trip!</button>
+        </section>
+        <section class="header-section">
+            <h1>Trip Itinerary</h1>
+            <table id = "tripTable" class="hidden">
+                <tr>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Terrain</th>
+                    <th>Size</th>
+                </tr>
+            </table>
         </section>
     </main>
-    <footer>
-        <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
-    </footer>
-
     <script type="module" src="./app.js"></script>
 </body>
 
