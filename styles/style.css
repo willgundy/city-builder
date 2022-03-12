@@ -142,3 +142,15 @@ strong {
     border-color: #ffc600;
     box-shadow: 0 0 1rem #ffc600;
 }
+
+table {
+    width: 80%;
+    border: 1px solid black;
+    text-align: center;
+}
+
+th {
+    text-transform: uppercase;
+    color: white;
+    background-color: darkblue;
+}

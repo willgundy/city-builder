@@ -13,12 +13,9 @@
 </head>
 
 <body>
-    <header>
-
-    </header>
     <main>
         <section class="header-section">
-            <h1>Choose a Location for your Trip!</h1>
+            <h1 id="mainHeader">Choose a Location for your Trip!</h1>
             <p id="cityDescription">Choose all three dropdowns before you grade this assignment please!</p>
         </section>
         <section class="main-container">
@@ -33,7 +30,7 @@
                     <option value="0">Northeast</option>
                     <option value="9">South</option>
                     <option value="18">Mid West</option>
-                    <option value="27">West</option>
+                    <option value="27">West (I only got to slogans for these)</option>
                 </select>
                 <select name="type" id="type">
                     <option value="default" >---Choose a terrain type---</option>
@@ -63,14 +60,25 @@
                     </div>
                 </div>
                 <div>
-                    <p id="cityNameP"><strong id="cityNameHeader"></strong> the city that...</p>
+                    <p id="cityNameP"><strong id="cityNameHeader"></strong> the...</p>
                     <div id="sloganText"></div>
                 </div>
                 <div id="changeCounter"> </div>
             </section>
         </section>
         <section id = "button-container" class="header-section hidden">
-            <button id="addtripbtn">Add City to Trip!</button>
+            <button id="addtripbtn">Add this City to my Trip!</button>
+        </section>
+        <section class="header-section">
+            <h1>Trip Itinerary</h1>
+            <table id = "tripTable" class="hidden">
+                <tr>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Terrain</th>
+                    <th>Size</th>
+                </tr>
+            </table>
         </section>
     </main>
     <script type="module" src="./app.js"></script>

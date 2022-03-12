@@ -25,6 +25,9 @@ const cityDescriptionEl = document.getElementById('cityDescription');
 //hidden sections on load
 const textContainer = document.getElementById('text-container');
 const buttonContainer = document.getElementById('button-container');
+const addTripButton = document.getElementById('addtripbtn');
+const tripTable = document.getElementById('tripTable');
+const mainHeaderEl = document.getElementById('mainHeader');
 
 // let state
 let regionChangeCount = 0;
@@ -34,6 +37,38 @@ let sizeChangeCount = 0;
 let slogans = [];
 
 // set event listeners 
+
+addTripButton.addEventListener('mouseover', () => {
+    addTripButton.classList.add('addtripbtn-hover');
+});
+
+addTripButton.addEventListener('mouseout', () => {
+    addTripButton.classList.remove('addtripbtn-hover');
+});
+
+addTripButton.addEventListener('click', () => {
+    addRowToTripTable();
+    resetPageAfterCitySelected();
+});
+
+function addRowToTripTable() {
+    const exampleCity = cities.city[Number(regionSelectorEl.value) + Number(typeSelectorEl.value) + Number(sizeSelectorEl.value)];
+    const newRow = tripTable.insertRow(-1);
+    newRow.insertCell(0).innerHTML = nameInputEl.value;
+    newRow.insertCell(1).innerHTML = exampleCity.regions;
+    newRow.insertCell(2).innerHTML = exampleCity.type;
+    newRow.insertCell(3).innerHTML = exampleCity.size;
+    tripTable.classList.remove('hidden');
+}
+
+function resetPageAfterCitySelected() {
+    regionSelectorEl.value = sizeSelectorEl.value = typeSelectorEl.value = 'default';
+    regionImageEl.src = typeImageEl.src = sizeImageEl.src = 'assets/Solid_white.png';
+    textContainer.classList.add('hidden');
+    buttonContainer.classList.add('hidden');
+    cityDescriptionEl.innerHTML = '';
+    mainHeaderEl.innerHTML = 'Choose Another Location for your Trip!';
+}
 
 regionSelectorEl.addEventListener('change', () => {
     regionImageEl.src = 'assets/region-' + regionSelectorEl.value + '.png';
@@ -135,41 +170,41 @@ function revealAllDOMElements() {
 //couldn't figure out how to import an object, functions worked fine. Had to put directly in app.js file
 let cities = {
     city: [
-        { id: 0, name: 'test 1', slogans: ['slogan 1'], regions: 'northeast', type: 'desert', size: 'big-city', regionId: 0, typeId: 0, sizeId: 0 },
-        { id: 1, name: 'test 2', slogans: ['slogan 2'], regions: 'northeast', type: 'desert', size: 'small-city', regionId: 0, typeId: 0, sizeId: 1 },
-        { id: 2, name: 'test 3', slogans: ['slogan 3'], regions: 'northeast', type: 'desert', size: 'town', regionId: 0, typeId: 0, sizeId: 2 },
-        { id: 3, name: 'test 4', slogans: ['slogan 4'], regions: 'northeast', type: 'forest', size: 'big-city', regionId: 0, typeId: 3, sizeId: 0 },
-        { id: 4, name: 'test 5', slogans: ['slogan 5'], regions: 'northeast', type: 'forest', size: 'small-city', regionId: 0, typeId: 3, sizeId: 1 },
-        { id: 5, name: 'test 6', slogans: ['slogan 6'], regions: 'northeast', type: 'forest', size: 'town', regionId: 0, typeId: 3, sizeId: 2 },
-        { id: 6, name: 'test 7', slogans: ['slogan 7'], regions: 'northeast', type: 'mountain', size: 'big-city', regionId: 0, typeId: 6, sizeId: 0 },
-        { id: 7, name: 'test 8', slogans: ['slogan 8'], regions: 'northeast', type: 'mountain', size: 'small-city', regionId: 0, typeId: 6, sizeId: 1 },
-        { id: 8, name: 'test 9', slogans: ['slogan 9'], regions: 'northeast', type: 'mountain', size: 'town', regionId: 0, typeId: 6, sizeId: 2 },
-        { id: 9, name: 'test 10', slogans: ['slogan 10'], regions: 'south', type: 'desert', size: 'big-city', regionId: 9, typeId: 0, sizeId: 0 },
-        { id: 10, name: 'test 11', slogans: ['slogan 11'], regions: 'south', type: 'desert', size: 'small-city', regionId: 9, typeId: 0, sizeId: 1 },
-        { id: 11, name: 'test 12', slogans: ['slogan 12'], regions: 'south', type: 'desert', size: 'town', regionId: 9, typeId: 0, sizeId: 2 },
-        { id: 12, name: 'test 13', slogans: ['slogan 13'], regions: 'south', type: 'forest', size: 'big-city', regionId: 9, typeId: 3, sizeId: 0 },
-        { id: 13, name: 'test 14', slogans: ['slogan 14'], regions: 'south', type: 'forest', size: 'small-city', regionId: 9, typeId: 3, sizeId: 1 },
-        { id: 14, name: 'test 15', slogans: ['slogan 15'], regions: 'south', type: 'forest', size: 'town', regionId: 9, typeId: 3, sizeId: 2 },
-        { id: 15, name: 'test 16', slogans: ['slogan 16'], regions: 'south', type: 'mountain', size: 'big-city', regionId: 9, typeId: 6, sizeId: 0 },
-        { id: 16, name: 'test 17', slogans: ['slogan 17'], regions: 'south', type: 'mountain', size: 'small-city', regionId: 9, typeId: 6, sizeId: 1 },
-        { id: 17, name: 'test 18', slogans: ['slogan 18'], regions: 'south', type: 'mountain', size: 'town', regionId: 9, typeId: 6, sizeId: 2 },
-        { id: 18, name: 'test 19', slogans: ['slogan 19'], regions: 'midwest', type: 'desert', size: 'big-city', regionId: 18, typeId: 0, sizeId: 0 },
-        { id: 19, name: 'test 20', slogans: ['slogan 20'], regions: 'midwest', type: 'desert', size: 'small-city', regionId: 18, typeId: 0, sizeId: 1 },
-        { id: 20, name: 'test 21', slogans: ['slogan 21'], regions: 'midwest', type: 'desert', size: 'town', regionId: 18, typeId: 0, sizeId: 2 },
-        { id: 21, name: 'test 22', slogans: ['slogan 22'], regions: 'midwest', type: 'forest', size: 'big-city', regionId: 18, typeId: 3, sizeId: 0 },
-        { id: 22, name: 'test 23', slogans: ['slogan 23'], regions: 'midwest', type: 'forest', size: 'small-city', regionId: 18, typeId: 3, sizeId: 1 },
-        { id: 23, name: 'test 24', slogans: ['slogan 24'], regions: 'midwest', type: 'forest', size: 'town', regionId: 18, typeId: 3, sizeId: 2 },
-        { id: 24, name: 'test 25', slogans: ['slogan 25'], regions: 'midwest', type: 'mountain', size: 'big-city', regionId: 18, typeId: 6, sizeId: 0 },
-        { id: 25, name: 'test 26', slogans: ['slogan 26'], regions: 'midwest', type: 'mountain', size: 'small-city', regionId: 18, typeId: 6, sizeId: 1 },
-        { id: 26, name: 'test 27', slogans: ['slogan 27'], regions: 'midwest', type: 'mountain', size: 'town', regionId: 18, typeId: 6, sizeId: 2 },
-        { id: 27, name: 'test 28', slogans: ['slogan 28'], regions: 'west', type: 'desert', size: 'big-city', regionId: 27, typeId: 0, sizeId: 0 },
-        { id: 28, name: 'test 29', slogans: ['slogan 29'], regions: 'west', type: 'desert', size: 'small-city', regionId: 27, typeId: 0, sizeId: 1 },
-        { id: 29, name: 'test 30', slogans: ['slogan 30'], regions: 'west', type: 'desert', size: 'town', regionId: 27, typeId: 0, sizeId: 2 },
-        { id: 30, name: 'test 31', slogans: ['slogan 31'], regions: 'west', type: 'forest', size: 'big-city', regionId: 27, typeId: 3, sizeId: 0 },
-        { id: 31, name: 'test 32', slogans: ['slogan 32'], regions: 'west', type: 'forest', size: 'small-city', regionId: 27, typeId: 3, sizeId: 1 },
-        { id: 32, name: 'test 33', slogans: ['slogan 33'], regions: 'west', type: 'forest', size: 'town', regionId: 27, typeId: 3, sizeId: 2 },
-        { id: 33, name: 'test 34', slogans: ['slogan 34'], regions: 'west', type: 'mountain', size: 'big-city', regionId: 27, typeId: 6, sizeId: 0 },
-        { id: 34, name: 'test 35', slogans: ['slogan 35'], regions: 'west', type: 'mountain', size: 'small-city', regionId: 27, typeId: 6, sizeId: 1 },
-        { id: 35, name: 'test 36', slogans: ['slogan 36'], regions: 'west', type: 'mountain', size: 'town', regionId: 27, typeId: 6, sizeId: 2 }
+        { id: 0, name: 'New York City', slogans: ['slogan 1'], regions: 'Northeast', type: 'Desert', size: 'Big City', regionId: 0, typeId: 0, sizeId: 0 },
+        { id: 1, name: 'Richmond', slogans: ['slogan 2'], regions: 'Northeast', type: 'Desert', size: 'Small City', regionId: 0, typeId: 0, sizeId: 1 },
+        { id: 2, name: 'Gretna', slogans: ['slogan 3'], regions: 'Northeast', type: 'Desert', size: 'Town', regionId: 0, typeId: 0, sizeId: 2 },
+        { id: 3, name: 'Boston', slogans: ['slogan 4'], regions: 'Northeast', type: 'Forest', size: 'Big City', regionId: 0, typeId: 3, sizeId: 0 },
+        { id: 4, name: 'Syracuse', slogans: ['slogan 5'], regions: 'Northeast', type: 'Forest', size: 'Small City', regionId: 0, typeId: 3, sizeId: 1 },
+        { id: 5, name: 'Jasper', slogans: ['slogan 6'], regions: 'Northeast', type: 'Forest', size: 'Town', regionId: 0, typeId: 3, sizeId: 2 },
+        { id: 6, name: 'Pittsburgh', slogans: ['slogan 7'], regions: 'Northeast', type: 'Mountain', size: 'Big City', regionId: 0, typeId: 6, sizeId: 0 },
+        { id: 7, name: 'Harrisburg', slogans: ['slogan 8'], regions: 'Northeast', type: 'Mountain', size: 'Small City', regionId: 0, typeId: 6, sizeId: 1 },
+        { id: 8, name: 'Hanover', slogans: ['slogan 9'], regions: 'Northeast', type: 'Mountain', size: 'Town', regionId: 0, typeId: 6, sizeId: 2 },
+        { id: 9, name: 'Jackson', slogans: ['slogan 10'], regions: 'South', type: 'Desert', size: 'Big City', regionId: 9, typeId: 0, sizeId: 0 },
+        { id: 10, name: 'Alexandria', slogans: ['slogan 11'], regions: 'South', type: 'Desert', size: 'Small City', regionId: 9, typeId: 0, sizeId: 1 },
+        { id: 11, name: 'Ferriday', slogans: ['slogan 12'], regions: 'South', type: 'Desert', size: 'Town', regionId: 9, typeId: 0, sizeId: 2 },
+        { id: 12, name: 'Nashville', slogans: ['slogan 13'], regions: 'South', type: 'Forest', size: 'Big City', regionId: 9, typeId: 3, sizeId: 0 },
+        { id: 13, name: 'Asheville', slogans: ['slogan 14'], regions: 'South', type: 'Forest', size: 'Small City', regionId: 9, typeId: 3, sizeId: 1 },
+        { id: 14, name: 'Potts Camp', slogans: ['slogan 15'], regions: 'South', type: 'Forest', size: 'Town', regionId: 9, typeId: 3, sizeId: 2 },
+        { id: 15, name: 'Charlotte', slogans: ['slogan 16'], regions: 'South', type: 'Mountain', size: 'Big City', regionId: 9, typeId: 6, sizeId: 0 },
+        { id: 16, name: 'Knoxville', slogans: ['slogan 17'], regions: 'South', type: 'Mountain', size: 'Small City', regionId: 9, typeId: 6, sizeId: 1 },
+        { id: 17, name: 'Abingdon', slogans: ['slogan 18'], regions: 'South', type: 'Mountain', size: 'Town', regionId: 9, typeId: 6, sizeId: 2 },
+        { id: 18, name: 'Omaha', slogans: ['slogan 19'], regions: 'Midwest', type: 'Desert', size: 'Big City', regionId: 18, typeId: 0, sizeId: 0 },
+        { id: 19, name: 'Rapid City', slogans: ['slogan 20'], regions: 'Midwest', type: 'Desert', size: 'Small City', regionId: 18, typeId: 0, sizeId: 1 },
+        { id: 20, name: 'Edgemont', slogans: ['slogan 21'], regions: 'Midwest', type: 'Desert', size: 'Town', regionId: 18, typeId: 0, sizeId: 2 },
+        { id: 21, name: 'Minneapolis', slogans: ['slogan 22'], regions: 'Midwest', type: 'Forest', size: 'Big City', regionId: 18, typeId: 3, sizeId: 0 },
+        { id: 22, name: 'Madison', slogans: ['slogan 23'], regions: 'Midwest', type: 'Forest', size: 'Small City', regionId: 18, typeId: 3, sizeId: 1 },
+        { id: 23, name: 'Osceola', slogans: ['slogan 24'], regions: 'Midwest', type: 'Forest', size: 'Town', regionId: 18, typeId: 3, sizeId: 2 },
+        { id: 24, name: 'Literally None', slogans: ['There are no mountains in the midwest'], regions: 'Midwest', type: 'Mountain', size: 'Big City', regionId: 18, typeId: 6, sizeId: 0 },
+        { id: 25, name: 'Rapid City', slogans: ['slogan 26'], regions: 'Midwest', type: 'Mountain', size: 'Small City', regionId: 18, typeId: 6, sizeId: 1 },
+        { id: 26, name: 'Deadwood', slogans: ['slogan 27'], regions: 'Midwest', type: 'Mountain', size: 'Town', regionId: 18, typeId: 6, sizeId: 2 },
+        { id: 27, name: 'Phoenix', slogans: ['Chain restaurant city'], regions: 'West', type: 'Desert', size: 'Big City', regionId: 27, typeId: 0, sizeId: 0 },
+        { id: 28, name: 'Palm Springs', slogans: ['Old people city'], regions: 'West', type: 'Desert', size: 'Small City', regionId: 27, typeId: 0, sizeId: 1 },
+        { id: 29, name: 'Flagstaff', slogans: ['So much better than Phoenix city'], regions: 'West', type: 'Desert', size: 'Town', regionId: 27, typeId: 0, sizeId: 2 },
+        { id: 30, name: 'Portland', slogans: ['Rose City', 'Best City', 'Stumptown', 'SCUSA'], regions: 'West', type: 'Forest', size: 'Big City', regionId: 27, typeId: 3, sizeId: 0 },
+        { id: 31, name: 'Redding', slogans: ['Its hot as hell city'], regions: 'West', type: 'Forest', size: 'Small City', regionId: 27, typeId: 3, sizeId: 1 },
+        { id: 32, name: 'Arcata', slogans: ['Dont tell people about us, its nice here city'], regions: 'West', type: 'Forest', size: 'Town', regionId: 27, typeId: 3, sizeId: 2 },
+        { id: 33, name: 'Seattle', slogans: ['the worst city', 'sold out to Amazon city'], regions: 'West', type: 'Mountain', size: 'Big City', regionId: 27, typeId: 6, sizeId: 0 },
+        { id: 34, name: 'Reno', slogans: ['biggest little city'], regions: 'West', type: 'Mountain', size: 'Small City', regionId: 27, typeId: 6, sizeId: 1 },
+        { id: 35, name: 'Tahoe City', slogans: ['there is a lake that high up! city'], regions: 'West', type: 'Mountain', size: 'Town', regionId: 27, typeId: 6, sizeId: 2 },
     ]
 };
